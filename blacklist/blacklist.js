@@ -5,7 +5,7 @@ const Blacklist = async (number) => {
         number = number.number
         console.log(number);
         const blacklisted = await blacklistModel.create({ number });
-       
+
 
         if (blacklisted) {
             return true;

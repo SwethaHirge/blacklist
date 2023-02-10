@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Blacklist</title>
+</head>
+
+<body>
+  <h1>Check Blacklist</h1>
+  <form>
+    <label>Number:</label>
+    <input type="text" id="number" required>
+    <br><br>
+    <button type="button" onclick="checkBlacklist()">Check</button>
+  </form>
+  <div id="response"></div>
+  <script>
+    async function checkBlacklist() {
+      const number = document.getElementById("number").value;
+      const response = await fetch("http://localhost:8000/check-blacklist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ number })
+      });
+      const data = await response.json();
+      document.getElementById("response").innerHTML = JSON.stringify(data);
+    }
+  </script>
+  <h1>Add Number to Blacklist</h1>
+  <form>
+    <label>Number:</label>
+    <input type="text" id="blacklistNumber" required>
+    <br><br>
+    <button type="button" onclick="addToBlacklist()">Submit</button>
+  </form>
+  <div id="blacklistResponse"></div>
+  <script>
+    async function addToBlacklist() {
+      const number = document.getElementById("blacklistNumber").value;
+      const response = await fetch("http://localhost:8000/blacklist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ number })
+      });
+      const data = await response.json();
+      document.getElementById("blacklistResponse").innerHTML = JSON.stringify(data);
+    }
+  </script>
+</body>
+
+</html>

@@ -7,13 +7,14 @@ mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://swethaHirge:eNbiwvH7LUDppBrx@cluster0.0xins.mongodb.net/Blacklist?retryWrites=true&w=majority', { useNewUrlParser: true });
 const app = express();
 
-app.use(bodyParser.json());
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-  });
+app.set('view engine', 'ejs');
 
+app.use(bodyParser.json());
+
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 // Route to add a number to the blacklist
 app.post('/blacklist', async (req, res) => {
@@ -69,6 +70,6 @@ app.post('/check-blacklist', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log('Server running on port 3000');
 });
