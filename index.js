@@ -70,6 +70,6 @@ app.post('/check-blacklist', async (req, res) => {
   }
 });
 
-app.listen(8000, () => {
+app.listen(8080, () => {
   console.log('Server running on port 3000');
 });
