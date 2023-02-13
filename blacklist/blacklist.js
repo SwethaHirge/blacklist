@@ -3,7 +3,6 @@ const blacklistModel = require('../model/blacklistModel')
 const Blacklist = async (number) => {
     try {
         number = number.number
-        console.log(number);
         const blacklisted = await blacklistModel.create({ number });
 
 

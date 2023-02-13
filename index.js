@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
 // Route to add a number to the blacklist
 app.post('/blacklist', async (req, res) => {
   const number = req.body.number
-  console.log(number);
   if (!number) {
     return res.status(400).json({ error: 'Number is required' }).end();
   }
@@ -43,7 +42,6 @@ app.post('/blacklist', async (req, res) => {
       }
     }
     const blacklist = await Blacklist({ number });
-    console.log(blacklist);
     if (blacklist) {
       return res.json({ message: 'Number added to blacklist' }).end();
     }
@@ -57,7 +55,6 @@ app.post('/blacklist', async (req, res) => {
 // Route to check if a number is blacklisted
 app.post('/check-blacklist', async (req, res) => {
   const number = req.body.number;
-  console.log(number);
   if (!number) {
     return res.status(400).json({ error: 'Number is required' });
   }
