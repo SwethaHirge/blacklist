@@ -4,7 +4,13 @@ const bodyParser = require('body-parser');
 const { isBlacklisted, BlacklistExist, Blacklist, updateIsBlacklisted } = require('./blacklist/blacklist')
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://swethaHirge:eNbiwvH7LUDppBrx@cluster0.0xins.mongodb.net/Blacklist?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://swethaHirge:eNbiwvH7LUDppBrx@cluster0.0xins.mongodb.net/Blacklist?retryWrites=true&w=majority', { useNewUrlParser: true })
+  .then(() => {
+    console.log('Successfully connected to the database.');
+  })
+  .catch((error) => {
+    console.error('Error connecting to the database: ', error);
+  });
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -19,6 +25,7 @@ app.get('/', (req, res) => {
 // Route to add a number to the blacklist
 app.post('/blacklist', async (req, res) => {
   const number = req.body.number
+  console.log(number);
   if (!number) {
     return res.status(400).json({ error: 'Number is required' }).end();
   }
