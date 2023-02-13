@@ -1,0 +1,25 @@
+{
+  "name": "blacklist",
+  "version": "1.0.0",
+  "description": "Blacklist Module\r Introduction\r This module provides the functionalities to blacklist a number to prevent the sending of SMS to that number. The data is stored in a MongoDB database using Mongoose. The module defines four functions:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwethaHirge/blacklist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SwethaHirge/blacklist/issues"
+  },
+  "homepage": "https://github.com/SwethaHirge/blacklist#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.1"
+  }
+}
