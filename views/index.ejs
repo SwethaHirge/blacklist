@@ -17,7 +17,7 @@
   <script>
     async function checkBlacklist() {
       const number = document.getElementById("number").value;
-      const response = await fetch("http://20.204.146.169:8080/check-blacklist", {
+      const response = await fetch("http://20.204.146.169:8086/check-blacklist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -39,7 +39,7 @@
   <script>
     async function addToBlacklist() {
       const number = document.getElementById("blacklistNumber").value;
-      const response = await fetch("http://20.204.146.169:8080/blacklist", {
+      const response = await fetch("http://20.204.146.169:8086/blacklist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
